@@ -1,0 +1,221 @@
+\documentclass[letterpaper,10pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+
+
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% The following two lines are needed to fix a MacTex compatibility issue
+% Thanks to Tony Blake for finding this fix!
+\usepackage{etoolbox}
+\usepackage{helvetica}
+\robustify\cftdotfill
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{1pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{10in} % To control top and bottom margins
+\setlength{\textwidth}{7in} % To control left and right margins
+\setlength{\topmargin}{-0.6in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item[\bullet] #1 \vspace{-4pt}}
+\newcommand{\resheading}[1]{\vspace{3pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+  \vspace{-4pt}
+  \uppercase{\textbf{#1}}
+  \vspace{-3mm} \\
+  \line(1,0){505} \\
+  }\vspace{-5mm}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{p{11cm}@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+
+\newcommand{\projitem}[1]{\item[\bullet] #1 \vspace{-5pt}}
+\newcommand{\project}[2]{
+\begin{tabular*}{6.5in}{L{2.25in}  R{4.25in}}
+		\textbf{#1} & #2 \\
+\end{tabular*}\vspace{-7pt}}
+
+\newcommand{\activity}[2]{
+\begin{tabular*}{6.5in}{p{15cm}@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		#1 & #2 \\
+\end{tabular*}\vspace{0pt}}
+
+\newcommand{\coursework}[3]{
+\begin{tabular*}{6.5in}{L{2.17in} C{2.17in} R{2.17in}}
+		#1 & #2 & #3 \\
+\end{tabular*}\vspace{0pt}}
+
+\newcommand{\skills}[1]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}		}
+		#1 \\
+\end{tabular*}\vspace{0pt}}
+
+
+\newcommand\textline[4][t]{%
+  \par\smallskip\noindent\parbox[#1]{.333\textwidth}{\raggedright#2}%
+  \parbox[#1]{.333\textwidth}{\centering#3}%
+  \parbox[#1]{.333\textwidth}{\raggedleft{#4}}\par\smallskip%
+}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                       HEADING                     %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\singlespacing
+\centerline{\textbf{\LARGE{Name}}}
+\vspace{-2mm}
+\line(1,0){505} \\
+\vspace{-1mm}
+\textline{Street Address}{Phone Number}{LinkedIn Link}
+\vspace{-2mm}
+\textline{City, State, Zip}{Email}{GitHub Link}
+
+\vspace{2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{EDUCATION}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\ressubheading{School Name}{City, State}{Bachelor of Science in Your Major}{Start Date - End Date}
+	\begin{itemize}
+		\resitem{GPA: X.XX/4.00}
+		\resitem{Expected Graduation: Graduation Date}
+	\end{itemize}
+\end{itemize}
+\vspace{1mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Software Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-7pt}
+\begin{changemargin}{0cm}{0.475cm}
+\begin{itemize}
+\item[]
+	\textbf{Languages and Software}: List of programming languages
+	\vspace{-1mm}
+
+\item[]
+	\textbf{IDEs and Frameworks}: List of IDEs, Frameworks, Databases, etc.
+	\vspace{-1mm}
+	
+\item[]
+	\textbf{Operating Systems}: List of Operating Systems
+	\vspace{-1mm}
+	
+\end{itemize}
+\end{changemargin}
+\vspace{1mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Projects}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\project{Project Name}{\textbf{GitHub Link}}
+	\begin{itemize}
+		\projitem{Created a button that does something.}
+		\projitem{Implemented a RESTful API.}
+	\end{itemize}
+\end{itemize}
+
+\vspace{5pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\ressubheading{Company Name}{City, State}{Position}{Start Date - End Date}
+	\begin{itemize}
+		\resitem{Developed a thing for a client.}
+		\resitem{Implemented version control policy that doubled workflow efficiency.}
+		\resitem{Migrated our data to AWS, reducing costs by 50\%.}
+	\end{itemize}
+\end{itemize}
+
+\vspace{1.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Leadership}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\ressubheading{Organization Name}{City, State}{Position}{Start Date - End Date}
+	\begin{itemize}
+		\resitem{Led events for students in the organization.}
+		\resitem{Raised \$XXX for the organization.}
+	\end{itemize}
+\end{itemize}
+
+\vspace{1.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Extracurricular Activities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\activity{Sports Team}{Year}
+	\activity{Member of Misc. Club}{Year}
+	\activity{Random Hackathon}{Year}
+\end{itemize}
+
+\vspace{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Relevant Coursework}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item[]
+	\coursework{Class 1}{Class 2}{Class 3}
+	\coursework{Class 4}{Class 5}{Class 6}
+	\coursework{Class 7}{Class 8}{Class 9}
+\end{itemize}
+
+\end{document}
