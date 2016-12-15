@@ -16,5 +16,8 @@ TeX is very modular, and depending on the distribution you download, you may or 
 
 It is important to typeset this template using LuaLaTeX rather than LaTeX, XeTeX, etc.
 
-### Template Usage ###
+### Template Usage
 
+To use the template, begin a new TeX document and paste the contents of Resume.tex into your TeX document. Set the typesetting to LuaLaTeX and hit typeset.
+
+When in doubt, look for the raw text within the TeX document of the text you are trying to change in the PDF. Changing this text will typically change what you want within the PDF.
