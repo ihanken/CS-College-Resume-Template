@@ -111,3 +111,7 @@ A coursework block is simple and is of the form:
 	\coursework{Class 7}{Class 8}{Class 9}
 \end{itemize}
 ```
+
+## Contributing
+
+I am open to adding more types of blocks or making changes to current block types. If you have a suggestion, don't be afraid to open a pull request with your change!
