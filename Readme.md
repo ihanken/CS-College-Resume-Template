@@ -1,1 +1,2 @@
-Blah Blah Blah
+Computer Science College Resume Template
+======
